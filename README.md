@@ -8,10 +8,6 @@ to manage the incoming traffic. It also adheres to the security best practices e
 
 ![pycharm2](project_architecture.png)
 
-<p align="center">
-  <img width="1190" height="572" src="azure-policy-tag-name.png">
-</p>
-
 ### Dependencies
 1. Create an [Azure Account](https://portal.azure.com) 
 2. Install the [Azure command line interface](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
