@@ -15,7 +15,7 @@ variable "username" {
 
 variable "password" {
   description = "The password for the virtual machine"
-  default     = "password1234"
+  default     = "Developer1234"
 }
 
 variable "image_id" {
