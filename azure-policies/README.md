@@ -1,8 +1,14 @@
-# Require Tag Name and Value
+# Azure Policies
+Deploying azure policies.
 
-This custom Azure Policy will deny a user from creating a resource if it does not include a specified tag name and a value.
+### Introduction
+This readme contains instructions to deploy azure policies.
 
-## Deploy with Azure CLI
+## Require Tag Name
+
+This custom Azure Policy will deny a user from creating a resource if it does not include a specified tag name.
+
+### Deploy with Azure CLI
 
 To deploy this policy run the following commands from the current directory.
 
@@ -14,8 +20,14 @@ az policy definition create --name tagging-policy --display-name "Deny the creat
 # Set the scope to a resource group; may also be a subscription or management group
 az policy assignment create --name 'tagging-policy' --display-name "Deny the creation of resources without tags" --scope /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName> --policy /subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/tagging-policy
 ```
+To view the assigned policy use the following command:
+``` bash
+    az policy assignment list
+```
+You should be able to see something like the screenshot below:
+![pycharm2](azure-policy-tag-name.png)
 
-## Delete with Azure CLI
+### Delete with Azure CLI
 ```cli
 # Delete the Policy Assignment
 az policy assignment delete --name 'tagging-policy'

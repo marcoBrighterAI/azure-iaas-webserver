@@ -6,25 +6,27 @@ This project, contains a Packer template, and a Terraform template to deploy a c
 It uses Packer to create the server image, and Terraform for deploying a scalable cluster of servers—with a load balancer
 to manage the incoming traffic. It also adheres to the security best practices ensuring that the infrastructure is secure.
 
+![pycharm2](project_architecture.png)
+
 ### Dependencies
 1. Create an [Azure Account](https://portal.azure.com) 
 2. Install the [Azure command line interface](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 3. Install [Packer](https://www.packer.io/downloads)
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
-### Instructions
+### Getting Started
+
 1. Clone this repository
-2. Create a Service Principle for Packer and Terraform
-3. Create a Resource Group for the Packer image
-4. Deploy the packer image
-5. Deploy the infrastructure with Terraform
+2. To deploy azure policies follow the instructions [here](azure-policies/README.md)
+3. To setup the environment and create the resources for the scalable web server follow the instruction bellow.
 
-#### 1. Clone this repository
-``` 
-    git clone https://github.com/marcoBrighterAI/azure-iaas-webserver.git
-```
+### Instructions
+1. Create a Service Principle for Packer and Terraform
+2. Create a Resource Group for the Packer image
+3. Deploy the packer image
+4. Deploy the infrastructure with Terraform
 
-#### 2. Create a Service Principle for Packer and Terraform
+#### 1. Create a Service Principle for Packer and Terraform
 Log into your Azure account
 ``` bash
     az login 
@@ -58,14 +60,14 @@ Change the parameters based on the output of the previous command. These values 
 For more information about *Authenticating to Azure using a Service Principal and a Client Secret*
 (follow this [Guide](https://www.terraform.io/docs/providers/azurerm/guides/service_principal_client_secret.html))
 
-#### 3. Create a Resource Group for the Packer image
+#### 2. Create a Resource Group for the Packer image
 Create Resource Group
 ``` bash
     az group create -l "LOCATION" -n "RESOURCE_GROUP_NAME" --tags udacity=udacity-project1
 ```
 Ensure that the *location* and *resource group* that you specify here is the same specified in [server.json](packer/server.json).
 
-#### 4. Deploy the packer image
+#### 3. Deploy the packer image
 Source environment variables 
 ```
     source packer/.env.sh
@@ -76,7 +78,7 @@ Run packer file
 ```
 This will create a packer image in the *resource group* specified in the previous step.
 
-#### 5. Deploy the infrastructure with Terraform
+#### 4. Deploy the infrastructure with Terraform
 Edit variables in the [variables.tf](terraform/variables.tf) to reflect your desired infrastructure.
 
 The following items should be updated accordingly:
