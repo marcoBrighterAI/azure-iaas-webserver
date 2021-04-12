@@ -25,7 +25,10 @@ To view the assigned policy use the following command:
     az policy assignment list
 ```
 You should be able to see something like the screenshot below:
-![pycharm2](azure-policy-tag-name.png)
+
+<p align="center">
+  <img width="657" height="361" src="azure-policy-tag-name.png">
+</p>
 
 ### Delete with Azure CLI
 ```cli
