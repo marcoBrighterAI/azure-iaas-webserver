@@ -1,10 +1,10 @@
-# Azure Policies
+## Azure Policies
 Deploying azure policies.
 
 ### Introduction
 This readme contains instructions to deploy azure policies.
 
-## Require Tag Name
+### Require Tag Name
 
 This custom Azure Policy will deny a user from creating a resource if it does not include a specified tag name.
 
