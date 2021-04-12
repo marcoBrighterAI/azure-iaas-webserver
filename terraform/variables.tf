@@ -25,4 +25,5 @@ variable "image_id" {
 
 variable "instance_count" {
   description = "Enter number of vm instances to create"
+  default     = "2"
 }
