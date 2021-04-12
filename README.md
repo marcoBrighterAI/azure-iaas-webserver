@@ -126,3 +126,18 @@ Terraform creates the following resources:
 - Virtual Machine(s)
 
 All can be found under the specified [resource group](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups).
+
+
+### Clean Up
+To delete all the resources created by terraform you can use the following command:
+``` bash
+    terraform destroy
+```
+To delete the packer image run the following command:
+``` bash
+    az image delete -g "RESOURCE_GROUP_NAME" -n "IMAGE_NAME"
+```
+To delete the resource group run the following command:
+``` bash
+    az group delete --no-wait --name "RESOURCE_GROUP_NAME"
+```
