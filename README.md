@@ -17,8 +17,8 @@ to manage the incoming traffic. It also adheres to the security best practices e
 ### Getting Started
 
 1. Clone this repository
-2. To deploy azure policies follow the instructions [here](azure-policies/README.md)
-3. To setup the environment and create the resources for the scalable web server follow the instruction bellow
+2. Deploy azure policies following [these instructions](azure-policies/README.md)
+3. Deploy a scalable web server following the instruction bellow:
 
 ### Instructions
 1. Create a Service Principle for Packer and Terraform
