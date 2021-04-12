@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -20,7 +20,7 @@ resource "azurerm_virtual_network" "main" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_network_interface" "main" {
   }
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -55,7 +55,7 @@ resource "azurerm_public_ip" "pip" {
   allocation_method   = "Dynamic"
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -66,14 +66,14 @@ resource "azurerm_network_security_group" "webserver" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
 resource "azurerm_network_security_rule" "internal-inbound" {
   name                        = "internal-inbound-rule"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.webserver.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.webserver.name
   priority                    = 101
   direction                   = "Inbound"
   access                      = "Allow"
@@ -86,8 +86,8 @@ resource "azurerm_network_security_rule" "internal-inbound" {
 
 resource "azurerm_network_security_rule" "internal-outbound" {
   name                        = "internal-outbound-rule"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.webserver.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.webserver.name
   priority                    = 102
   direction                   = "Outbound"
   access                      = "Allow"
@@ -100,8 +100,8 @@ resource "azurerm_network_security_rule" "internal-outbound" {
 
 resource "azurerm_network_security_rule" "external" {
   name                        = "external-rule"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.webserver.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.webserver.name
   priority                    = 103
   direction                   = "Inbound"
   access                      = "Deny"
@@ -125,7 +125,7 @@ resource "azurerm_lb" "main" {
   }
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -148,7 +148,7 @@ resource "azurerm_availability_set" "avset" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = "${var.prefix}-project-1"
+    udacity = var.prefix
   }
 }
 
@@ -160,8 +160,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   source_image_id                 = var.image_id
   location                        = azurerm_resource_group.main.location
   size                            = "Standard_D2s_v4"
-  admin_username                  = "${var.username}"
-  admin_password                  = "${var.password}"
+  admin_username                  = var.username
+  admin_password                  = var.password
   availability_set_id             = azurerm_availability_set.avset.id
   disable_password_authentication = false
 
@@ -175,7 +175,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   }
 
   tags = {
-    udacity = "${var.prefix}-project1"
+    udacity = var.prefix
   }
 }
 
@@ -189,7 +189,7 @@ resource "azurerm_managed_disk" "data" {
   storage_account_type = "Standard_LRS"
 
   tags = {
-    udacity = "${var.prefix}-project-1"
+    udacity = var.prefix
   }
 }
 
