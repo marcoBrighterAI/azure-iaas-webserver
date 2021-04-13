@@ -6,7 +6,7 @@ This project, contains a Packer template, and a Terraform template to deploy a c
 It uses Packer to create the server image, and Terraform for deploying a scalable cluster of servers—with a load balancer
 to manage the incoming traffic. It also adheres to the security best practices ensuring that the infrastructure is secure.
 
-![pycharm2](project_architecture.png)
+![pycharm1](project_architecture.png)
 
 ### Dependencies
 1. Create an [Azure Account](https://portal.azure.com) 
@@ -87,7 +87,7 @@ The following items should be updated accordingly:
 - location (should match packer image location)
 - username
 - password
-- image_id
+- image_id (SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, and IMAGE_NAME)
 - instance_count
 
 Run Terraform plan 
@@ -106,6 +106,10 @@ Run Terraform apply
 ``` bash
     terraform apply
 ```
+
+If everything runs correctly you should be able to see something like the screenshot bellow:
+
+![pycharm3](terraform-apply-output.png)
 
 ### Output
 Service Principal with permissions to manage resources in the specified Subscription:
