@@ -37,7 +37,7 @@ Log into your Azure account
 ```
 Create Service Principle
 ``` bash
-    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+    az ad sp create-for-rbac --name azure-iaas-webserver --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
 ```
 
 This command will output 5 values:
@@ -63,7 +63,7 @@ For more information about *Authenticating to Azure using a Service Principal an
 #### 2. Create a Resource Group for the Packer image
 Create Resource Group
 ``` bash
-    az group create -l "LOCATION" -n "RESOURCE_GROUP_NAME" --tags udacity=udacity-project1
+    az group create -l "LOCATION" -n "RESOURCE_GROUP_NAME" --tags Project=iaas-webserver
 ```
 Ensure that the *location* and *resource group* that you specify here is the same specified in [server.json](packer/server.json).
 
@@ -98,13 +98,13 @@ Run Terraform plan
     terraform init
 ```
 ``` bash
-    terraform plan
+    terraform plan -out solution.plan
 ```
 After running the plan you should see all the resources that will be created.
 
 Run Terraform apply
 ``` bash
-    terraform apply
+    terraform apply "solution.plan"
 ```
 
 If everything runs correctly you should be able to see something like the screenshot bellow:
@@ -146,4 +146,8 @@ To delete the packer image run the following command:
 To delete the resource group run the following command:
 ``` bash
     az group delete --no-wait --name "RESOURCE_GROUP_NAME"
+```
+To delete the Service Principal Created in step 1 run the following command:
+``` bash
+    az ad sp delete --id 00000000-0000-0000-0000-000000000000
 ```
