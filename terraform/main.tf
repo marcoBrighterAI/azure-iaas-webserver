@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -20,7 +20,7 @@ resource "azurerm_virtual_network" "main" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_network_interface" "main" {
   }
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -55,7 +55,7 @@ resource "azurerm_public_ip" "pip" {
   allocation_method   = "Dynamic"
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -66,7 +66,7 @@ resource "azurerm_network_security_group" "webserver" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -125,7 +125,7 @@ resource "azurerm_lb" "main" {
   }
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -148,7 +148,7 @@ resource "azurerm_availability_set" "avset" {
   resource_group_name = azurerm_resource_group.main.name
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -175,7 +175,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   }
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
@@ -189,7 +189,7 @@ resource "azurerm_managed_disk" "data" {
   storage_account_type = "Standard_LRS"
 
   tags = {
-    udacity = var.prefix
+    Project = var.prefix
   }
 }
 
