@@ -4,7 +4,7 @@
 		"client_secret": "{{env `ARM_CLIENT_SECRET`}}",
 		"subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
 		"tenant_id": "{{env `ARM_TENANT_ID`}}",
-		"resource_group": "udacity-project1-rg",
+		"resource_group": "azure-iaas-webserver-rg",
   		"image_name": "packer-image",
   		"location": "West Europe",
 		"vm_size": "Standard_D2_v4"
@@ -28,7 +28,7 @@
 		"vm_size": "{{user `vm_size`}}",
 
 		"azure_tags": {
-        	"udacity": "udacity-project1"
+        	"Project": "iaas-webserver"
 		}
 	}],
 	"provisioners": [{
