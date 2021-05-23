@@ -9,10 +9,10 @@ to manage the incoming traffic. It also adheres to the security best practices e
 ![pycharm1](project_architecture.png)
 
 ### Dependencies
-1. Create an [Azure Account](https://portal.azure.com) 
-2. Install the [Azure command line interface](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-3. Install [Packer](https://www.packer.io/downloads)
-4. Install [Terraform](https://www.terraform.io/downloads.html)
+- Create an [Azure Account](https://portal.azure.com)
+- Install the [Azure command line interface](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Install [Packer](https://www.packer.io/downloads)
+- Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Getting Started
 
@@ -21,10 +21,10 @@ to manage the incoming traffic. It also adheres to the security best practices e
 3. Deploy a scalable web server following the instruction bellow:
 
 ### Instructions
-1. Create a Service Principle for Packer and Terraform
-2. Create a Resource Group for the Packer image
-3. Deploy the packer image
-4. Deploy the infrastructure with Terraform
+* [1. Create a Service Principle for Packer and Terraform](#1-create-a-service-principle-for-packer-and-terraform)
+* [2. Create a Resource Group for the Packer image](#2-create-a-resource-group-for-the-packer-image)
+* [3. Deploy the packer image](#3-deploy-the-packer-image)
+* [4. Deploy the infrastructure with Terraform](#4-deploy-the-infrastructure-with-terraform)
 
 #### 1. Create a Service Principle for Packer and Terraform
 Log into your Azure account
